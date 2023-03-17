@@ -7,9 +7,9 @@ import javax.persistence.*;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long customer_id;
 
-    @Column(name = "name")
+    @Column(name = "customer_name")
     private String name;
 
     @Column(name = "phone_number")
@@ -18,6 +18,7 @@ public class Customer {
     @ManyToOne
     @JoinColumn(name = "queue_id")
     private Queue queue;
+
 
     @Column(name = "served_count")
     private int servedCount;
@@ -31,12 +32,12 @@ public class Customer {
     public Customer() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getCustomer_Id() {
+        return customer_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCustomer_Id(Long customer_id) {
+        this.customer_id = customer_id;
     }
 
     public String getName() {

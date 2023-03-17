@@ -21,14 +21,12 @@ public class Store {
     @OneToMany(mappedBy = "store")
     private List<Menu> menus = new ArrayList<>();;
 
-    @OneToMany(mappedBy = "shop")
+    @OneToMany(mappedBy = "store")
     private List<Queue> queues;
 
-    @OneToMany(mappedBy = "shop")
+    @OneToMany(mappedBy = "store")
     private List<Order> orders;
 
-    @OneToMany(mappedBy = "shop")
-    private List<Customer> customers;
 
     public Store(Long store_id, String name, Region region, List menus) {
         this.store_id = store_id;
@@ -72,6 +70,22 @@ public class Store {
         this.menus = menus;
     }
 
+    public Long getStore_id() {
+        return store_id;
+    }
+
+    public void setStore_id(Long store_id) {
+        this.store_id = store_id;
+    }
+
+    public String getStore_name() {
+        return store_name;
+    }
+
+    public void setStore_name(String store_name) {
+        this.store_name = store_name;
+    }
+
     public List<Queue> getQueues() {
         return queues;
     }
@@ -86,13 +100,5 @@ public class Store {
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
-    }
-
-    public List<Customer> getCustomers() {
-        return customers;
-    }
-
-    public void setCustomers(List<Customer> customers) {
-        this.customers = customers;
     }
 }
