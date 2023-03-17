@@ -10,8 +10,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/regions")
 public class RegionController {
+
+    private final RegionService regionService;
     @Autowired
-    private RegionService regionService;
+    public RegionController(RegionService regionService) {
+        this.regionService = regionService;
+    }
+
 
     @GetMapping
     public ResponseEntity<Object> getRegions() {

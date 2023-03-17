@@ -16,6 +16,10 @@ public class Region {
     @Column(name = "region_address")
     private String RegionAddress;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "country_id")
+    private Country country;
+
     @OneToMany(mappedBy = "region")
     private List<Store> stores;
 
@@ -23,7 +27,7 @@ public class Region {
 
     }
 
-    public Region(Long region_id, String RegionName, List<Store> stores,Double latitude, Double longitude) {
+    public Region(Long region_id, String RegionName, List<Store> stores) {
         this.region_id = region_id;
         this.RegionName = RegionName;
         this.stores = stores;
