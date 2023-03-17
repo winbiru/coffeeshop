@@ -86,7 +86,7 @@ class EmployeeControllerTest {
 
         // Assert
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
-        assertThat(responseEntity.getBody()).isEqualTo("Employee not found.");
+        assertThat(responseEntity.getBody()).isEqualTo("Employee not found. not found with id :"+" '"+id+"'");
     }
 
     @Test
@@ -123,14 +123,14 @@ class EmployeeControllerTest {
         // Arrange
         Long id = 1L;
         Employee emp = new Employee(id, "Emp1", null);
-        when(employeeService.updateEmployee(id, emp)).thenThrow(new ResourceNotFoundException("Employee not found.","",""));
+        when(employeeService.updateEmployee(id, emp)).thenThrow(new ResourceNotFoundException("Employee not found.", "", ""));
 
         // Act
         ResponseEntity<Object> responseEntity = employeeController.updateEmployee(id, emp);
 
         // Assert
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
-        assertThat(responseEntity.getBody()).isEqualTo("Employee not found.");
+        assertThat(responseEntity.getBody()).isEqualTo("Employee not found. not found with  : ''");
     }
 
 }
