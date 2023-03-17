@@ -1,0 +1,5 @@
+ServerName("localhost");
+PortNumber(5432);
+DatabaseName("coffeeshop");
+User("postgres");
+Password("123456");
