@@ -8,8 +8,11 @@ public class Menu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long menu_id;
 
-    @Column(name = "menu_name", nullable = false)
-    private String menu_name;
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "price", nullable = false)
+    private Long price;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
@@ -17,7 +20,7 @@ public class Menu {
 
     public Menu(Long menu_id, String name, Store store) {
         this.menu_id = menu_id;
-        this.menu_name = menu_name;
+        this.name = name;
         this.store = store;
     }
 
@@ -33,12 +36,20 @@ public class Menu {
         this.menu_id = menu_id;
     }
 
-    public String getMenu_Name() {
-        return menu_name;
+    public String getName() {
+        return name;
     }
 
-    public void setMenu_Name(String menu_name) {
-        this.menu_name = menu_name;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getPrice() {
+        return price;
+    }
+
+    public void setPrice(Long price) {
+        this.price = price;
     }
 
     public Store getStore() {
